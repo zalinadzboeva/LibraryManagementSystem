@@ -4,7 +4,7 @@
 }
 <div class="wrapper__biblio">
     <h2>Библиотека</h2>
-    <p><a class="addbook"  asp-action="Create">Добавить книгу</a></p>
+
 
     <ul class="biblio">
         @foreach (var bookVeiwModel in Model)
@@ -13,11 +13,11 @@
                 <div class="book__info">
             <li class="book__name">@bookVeiwModel.Title</li>
             <li class="book__author">@bookVeiwModel.Author</li>
-    </div>
-    <div class="book__redact">
-        <button class="book__presence">Показать наличие</button>
-        <a class="book__add" href="book/openbook/@bookVeiwModel.BookId">Показать книгу</a>
-    </div>
+            </div>
+            <div class="book__redact">
+                <button class="book__presence">Показать наличие</button>
+                <a class="book__add" href="book/openbook/@bookVeiwModel.BookId">Показать книгу</a>
+            </div>
             </div>
         }
 </ul>

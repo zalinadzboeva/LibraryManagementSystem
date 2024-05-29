@@ -8,5 +8,10 @@ namespace LibraryManagementSystem.Controllers
         {
             return View();
         }
+
+        public IActionResult UserBook()
+        {
+            return View();
+        }
     }
 }

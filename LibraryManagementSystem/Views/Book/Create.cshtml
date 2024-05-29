@@ -1,28 +1,30 @@
 ﻿@model BookViewModel
 
-<h2>Добавление пользователя</h2>
-<form asp-action="create" asp-controller="home">
-    <div class="validation" asp-validation-summary="All"></div>
-    <p>
-        <label asp-for="Title">Возраст</label><br />
-        <input type="text" asp-for="Title" />
-        <span asp-validation-for="Title"></span>
-    </p>
-    <p>
-        <label asp-for="Author">Имя</label><br />
-        <input type="text" asp-for="Author" />
-        <span asp-validation-for="Author"></span>
-    </p>
-    <p>
-        <label asp-for="Description">Имя</label><br />
-        <input type="text" asp-for="Description" />
-        <span asp-validation-for="Description"></span>
-    </p>
-    <button type="submit"
-            style="margin-top:10px"
-            class="btn btn-success btn-group"
-            asp-action="Create"
-            asp-controller="Book">
-        Добавить
-    </button>
-</form> 
+<div class="wrapper">
+        <h2 class="title">Добавление книги</h2>
+        <form asp-action="create" asp-controller="home">
+            <div class="validation" asp-validation-summary="All"></div>
+            <p>
+                <label asp-for="Title">Название книги</label><br />
+                <input type="text" asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </p>
+            <p>
+                <label asp-for="Author">Автор </label><br />
+                <input type="text" asp-for="Author" />
+                <span asp-validation-for="Author"></span>
+            </p>
+            <p>
+                <label asp-for="Description">Описание</label><br />
+                <input type="text" asp-for="Description" />
+                <span asp-validation-for="Description"></span>
+            </p>
+            <button class="sent"
+                    asp-action="Create"
+                    asp-controller="Book">
+                Добавить
+            </button>
+        </form>
+    
+</div>
+ 

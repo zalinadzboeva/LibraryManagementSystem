@@ -1,21 +1,23 @@
-﻿<h2>Добавление пользователя</h2>
-<form asp-action="create" asp-controller="home">
-    <div class="validation" asp-validation-summary="All"></div>
-    <p>
-        <label>Логин</label><br />
-        <input type="text"  />
-        <span></span>
-    </p>
-    <p>
-        <label >Пароль</label><br />
-        <input type="text"  />
-        <span ></span>
-    </p>
-    <button type="submit"
-            style="margin-top:10px"
-            class="btn btn-success btn-group"
-            asp-action="Create"
-            asp-controller="Book">
-        Добавить
-    </button>
-</form>
+﻿
+<div class="wrapper">
+    <h2>Добавление пользователя</h2>
+    <form asp-action="create" asp-controller="home">
+        <div class="validation" asp-validation-summary="All"></div>
+        <p>
+            <label>Логин</label><br />
+            <input type="text" />
+            <span></span>
+        </p>
+        <p>
+            <label>Пароль</label><br />
+            <input type="text" />
+            <span></span>
+        </p>
+        <button type="submit"
+                class="sent"
+                asp-action="UserBook"
+                asp-controller="User">
+            войти
+        </button>
+    </form>
+</div>
