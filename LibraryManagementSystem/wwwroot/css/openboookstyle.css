@@ -1,0 +1,54 @@
+﻿.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    background-image: url(https://furman.top/uploads/posts/2023-09/1694113618_furman-top-p-biblioteka-estetika-oboi-3.jpg);
+    background-color: rgba(0, 0, 0, 5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f7f7f7;
+}
+.openbook {
+    padding: 10%;
+    padding-top: 5%;
+    backdrop-filter: blur(15px);
+    width: 40%;
+}
+
+.openbook__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+}
+
+    .openbook__info h4 {
+        margin: 0;
+        font-size: 2vw;
+    }
+
+    .openbook__info h6 {
+        margin-bottom: 0;
+        margin-top: 15px;
+        font-size: 1.5vw;
+    }
+
+.openbook__description {
+    font-weight: 300;
+    font-size: 1.3vw;
+    width: 90%;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.openbook__presence {
+    text-align: center;
+    width: 90%;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}

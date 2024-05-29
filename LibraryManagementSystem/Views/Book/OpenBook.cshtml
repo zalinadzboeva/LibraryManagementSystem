@@ -1,5 +1,5 @@
 ﻿@model BookViewModel
-
+<div class="wrapper">
     <div class="openbook">
         <div class="openbook__info">
             <h4 class="openbook__name">@Model.Title</h4>
@@ -7,5 +7,7 @@
         </div>
         <p class="openbook__description">@Model.Description</p>
 
-        <a heref="href=" #" class="openbook__presence ">Вернуться в библиотеку</a>
+        <a heref="book/index" class="openbook__presence ">Вернуться в библиотеку</a>
     </div>
+</div>
+    
