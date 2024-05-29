@@ -1,0 +1,176 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media(max-height:700){
+    .wrapper{
+        height:auto;
+    }
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2vw;
+    font-weight: 600;
+    background-image: url(https://furman.top/uploads/posts/2023-09/1694113618_furman-top-p-biblioteka-estetika-oboi-3.jpg);
+    backdrop-filter: blur(100px);
+    color: #f7f7f7;
+    margin: 0;
+    padding: 15px 0;
+    box-shadow: 0px 0px 17.9px 0px #26285626;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    list-style-type: none;
+    text-decoration: none;
+    color: #f7f7f7;
+}
+    a:hover {
+        color: #f7f7f7;
+    }
+
+.biblio {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 0px;
+    margin: 0;
+}
+
+.book {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFf;
+    border: 1px solid #ccc;
+}
+
+.book__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    color: #100805;
+}
+
+.book__author {
+    font-size: 13px;
+    color: #100805;
+    align-self: center;
+}
+.text-center {
+    padding-top:30px;
+    color: #f7f7f7;
+    height: 500px;
+    background-image: url(https://furman.top/uploads/posts/2023-09/1694113618_furman-top-p-biblioteka-estetika-oboi-3.jpg);
+    background-color: rgba(0, 0, 0, 100);
+}
+    .text-center p{
+        width:80%;
+        margin-right:auto;
+        margin-left:auto;
+        text-align:center;
+    }
+.book__presence,
+.book__add {
+    background-color: #100805; /* Зеленый цвет */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+    background-image: url(https://furman.top/uploads/posts/2023-09/1694113618_furman-top-p-biblioteka-estetika-oboi-3.jpg);
+    background-color: rgba(0, 0, 0, 5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f7f7f7;
+}
+
+.openbook {
+    padding: 10%;
+    padding-top: 5%;
+    backdrop-filter: blur(15px);
+    width: 40%;
+}
+
+.openbook__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+}
+
+    .openbook__info h4 {
+        margin: 0;
+        font-size: 2vw;
+    }
+
+    .openbook__info h6 {
+        margin-bottom: 0;
+        margin-top: 15px;
+        font-size: 1.5vw;
+    }
+
+.openbook__description {
+    font-weight: 300;
+    font-size: 1.3vw;
+    width: 90%;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.openbook__presence {
+    text-align: center;
+    width: 90%;
+    padding: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+wrapper__biblio {
+    width: 100%;
+    height: 500px;
+    background-image: url(https://furman.top/uploads/posts/2023-09/1694113618_furman-top-p-biblioteka-estetika-oboi-3.jpg);
+    background-color: rgba(0, 0, 0, 5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f7f7f7;
+}
+.addbook {
+    color: #100805;
+}
