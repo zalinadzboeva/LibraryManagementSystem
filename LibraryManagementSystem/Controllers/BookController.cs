@@ -9,10 +9,13 @@ namespace LibraryManagementSystem.Controllers
     public class BookController : Controller
     {
         private readonly BookDbRepository bookRepository;
+        private readonly UserDbRepository userRepository;
 
-        public BookController(BookDbRepository bookRepository)
+        public BookController(BookDbRepository bookRepository,
+            UserDbRepository userRepository)
         {
-            this.bookRepository = bookRepository;
+            this.bookRepository = bookRepository;   
+            this.userRepository = userRepository;
         }
         // GET: Books/Create
         [HttpGet]
@@ -27,7 +30,9 @@ namespace LibraryManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                bookRepository.AddBook(Helpers.Mapping.ToBook(bookViewModel));
+                var newBook = Helpers.Mapping.ToBook(bookViewModel);
+                var userName = Request.Cookies["userLogin"];
+                bookRepository.AddBook(userName, newBook);
                 return RedirectToAction(nameof(Index));
             }
             return View(bookViewModel);
@@ -36,6 +41,8 @@ namespace LibraryManagementSystem.Controllers
         // GET: Books
         public IActionResult Index()
         {
+            var userName = Request.Cookies["userLogin"];
+            ViewData["userLogin"] = userName;
             return View(Helpers.Mapping.ToBookViewModels(bookRepository.GetAllBooks()));
         }
         public IActionResult OpenBook(int id)

@@ -4,6 +4,7 @@ using Library.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Db.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240530203245_Initialization")]
+    partial class Initialization
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,11 +49,15 @@ namespace Library.Db.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("UserName");
+                    b.HasIndex("UserName1");
 
                     b.ToTable("Books");
                 });
@@ -121,7 +128,7 @@ namespace Library.Db.Migrations
                 {
                     b.HasOne("Library.Db.Models.User", null)
                         .WithMany("Books")
-                        .HasForeignKey("UserName");
+                        .HasForeignKey("UserName1");
                 });
 
             modelBuilder.Entity("Library.Db.Models.Rental", b =>

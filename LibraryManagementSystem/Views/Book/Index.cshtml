@@ -4,8 +4,10 @@
 }
 <div class="wrapper__biblio">
     <h2>Библиотека</h2>
-
-
+    @if (ViewData["userLogin"] != null && ViewData["userLogin"] != string.Empty)
+    {
+        <a asp-controller="Book" asp-action="Create">Добавить книгу</a>
+    }
     <ul class="biblio">
         @foreach (var bookVeiwModel in Model)
         {

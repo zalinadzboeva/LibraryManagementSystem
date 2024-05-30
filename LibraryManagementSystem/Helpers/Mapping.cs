@@ -1,4 +1,5 @@
-﻿using Library.Db.Models;
+﻿using Library.Db;
+using Library.Db.Models;
 using LibraryManagementSystem.Models;
 
 namespace LibraryManagementSystem.Helpers
@@ -27,10 +28,10 @@ namespace LibraryManagementSystem.Helpers
                 IsAvailable = bookViewModel.IsAvailable,
             };
         }
+
         public static List<BookViewModel> ToBookViewModels(List<Book> books)
         {
             return books.Select(ToBookViewModel).ToList();
         }
-
     }
 }

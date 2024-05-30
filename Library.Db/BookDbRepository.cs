@@ -17,9 +17,11 @@ namespace Library.Db
             this.databaseContext = databaseContext;
         }
 
-        public void AddBook(Book book)
+        public void AddBook(string userName, Book book)
         {
             databaseContext.Books.Add(book);
+            var user = databaseContext.Users.FirstOrDefault(u => u.UserName == userName);
+            user.Books.Add(book);
             databaseContext.SaveChanges();// сохраняет изменения 
         }
          public List<Book> GetAllBooks()

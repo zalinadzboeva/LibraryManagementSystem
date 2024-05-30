@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<BookDbRepository>();
+builder.Services.AddTransient<UserDbRepository>();
 
 // Настройка DbContext с использованием строки подключения из appsettings.json
 builder.Services.AddDbContext<DatabaseContext>(options =>

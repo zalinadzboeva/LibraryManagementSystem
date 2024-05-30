@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Db.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240526191518_Initialisation")]
-    partial class Initialisation
+    [Migration("20240530203917_DeleteBookUserName")]
+    partial class DeleteBookUserName
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,7 +48,12 @@ namespace Library.Db.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("BookId");
+
+                    b.HasIndex("UserName");
 
                     b.ToTable("Books");
                 });
@@ -73,41 +78,53 @@ namespace Library.Db.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("RentalId");
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserName");
 
                     b.ToTable("Rentals");
                 });
 
             modelBuilder.Entity("Library.Db.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
-
-                    b.Property<string>("Email")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAdmin")
+                    b.Property<bool>("LockoutEnable")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("UserName");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Library.Db.Models.Book", b =>
+                {
+                    b.HasOne("Library.Db.Models.User", null)
+                        .WithMany("Books")
+                        .HasForeignKey("UserName");
                 });
 
             modelBuilder.Entity("Library.Db.Models.Rental", b =>
@@ -120,13 +137,18 @@ namespace Library.Db.Migrations
 
                     b.HasOne("Library.Db.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UserName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Library.Db.Models.User", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }
